@@ -1,4 +1,4 @@
-const orm = requir("../config/orm.js");
+const orm = require("../config/orm.js");
 
 
 
