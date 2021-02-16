@@ -1,27 +1,42 @@
 const express = require("express");
 const burger = require("../models/burger");
-
-
-//TO DO: 4. Create the `router` for the app, 
-//and export the `router` at the end of your file.
+const router = express.Router();
 
 // Use Handlebars to render the main index.html page.
 router.get('/', (req, res) => {
-    connection.query('SELECT * FROM burgers;', (err, data) => {
-      if (err) {
-        return res.status(500).end();
-      }
-  
-      res.render('index', { burger_name: data });
-    });
+  burger.all((data) => {
+    const hbsObject = {
+      burgers: data,
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
   });
+});
 
+//ADD
+router.post('/', (req, res) => {
+  burger.create(["burger_name"], [req.body.name], (result) => {
+    res.json({ id: result.imsertId});
+  })
+})
 
-
-
-
-
-
+//DEVOUR
+router.put('/burgers/:id', (req, res) => {
+  const condition = `id = ${req.params.id}`
+  console.log('condition:', condition);
+  burger.update(
+    {
+      deoured: req.body.devoured
+    }, 
+    condition, 
+    (result) => {
+      if(result.changedRows === 0){
+        return res.status(200).end();
+      }
+      res.status(200).end();
+    }
+  );
+});
 
 // Export routes to server.js file
 module.exports = router;
