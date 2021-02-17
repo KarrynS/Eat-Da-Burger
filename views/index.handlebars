@@ -1,6 +1,58 @@
-<h1 class="mainTitle">Eat-Da-Burger</h1>
     <div class="row">
-        <div class="col col-12">
+        <div class="col-md-12 col-md-6 text-center title" >
+            <img src="/assets/img/burger.png" class="burgerPic" alt="burger">
+            <h1 class="mainTitle">Eat-Da-Burger</h1>
+        </div>
+        <div class="row">
+            <div class="col col-12 col-md-6 burgerslist">
+                <div class="row">
+                    <div class="col col-12">
+                        <h3 class="sectionTitle">Burgers Wishlist</h3>
+                    </div>
+                    <div class="col col-12">
+                        <ul class="burgerList">
+                            {{#each burgers}}
+                            {{#unless devoured}}
+                            <li>
+                                🍔
+                                {{id}}.
+                                {{burger_name}} 
+                                <button class="devourIt btn btn-danger" data-id="{{this.id}}" data-newlydevoured="true">
+                                    Devour it!</button>
+                                <hr>
+                            </li>
+                            {{/unless}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <div class="col col-12 col-md-6 devouredlist">
+            <div class="row">
+                <div class="col col-12">
+                    <h3 class="sectionTitle">Burgers Devoured</h3>
+                </div>
+                <div class="col col-12">
+                    <ul class="burgerList">
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <li>
+                            🍴 
+                            {{id}}.
+                            {{burger_name}}
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+     </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 text-center">
             <div class="row">
                 <div class="col col-12">
                     <h3 class="sectionTitle" id="createTitle">Enter a burger you'd like to eat</h3>
@@ -18,47 +70,4 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col col-12 col-md-6">
-            <div class="row">
-                <div class="col col-12">
-                    <h3 class="sectionTitle">Burgers waiting to be eaten</h3>
-                </div>
-                <div class="col col-12">
-                    <ul class="burgerList">
-                        {{#each burgers}}
-                        {{#unless devoured}}
-                        <li>
-                            🍔
-                            {{id}}.
-                            {{burger_name}} 
-                            <button class="devourIt btn-danger" data-id="{{this.id}}" data-newdevoured="true">
-                                Devour it!</button>
-                            <hr>
-                        </li>
-                        {{/unless}}
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col col-12 col-md-6">
-            <div class="row">
-                <div class="col col-12">
-                    <h3 class="sectionTitle">Burgers Devoured</h3>
-                </div>
-                <div class="col col-12">
-                    <ul class="burgerList">
-                        {{#each burgers}}
-                        {{#if devoured}}
-                        <li>
-                            🍴 
-                            {{burger_name}}
-                        </li>
-                        {{/if}}
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>    

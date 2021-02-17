@@ -16,13 +16,13 @@ router.get('/', (req, res) => {
 //ADD
 router.post('/', (req, res) => {
   burger.create(["burger_name"], [req.body.name], (result) => {
-    res.json({ id: result.imsertId});
+    res.json({ id: result.insertId});
   })
 })
 
 //DEVOUR
 router.put('/burgers/:id', (req, res) => {
-  const condition = `id = ${req.params.id}`
+  let condition = `id =` + req.params.id;
   console.log('condition:', condition);
   burger.update(
     {
