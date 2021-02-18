@@ -3,7 +3,7 @@
             <img src="/assets/img/burger.png" class="burgerPic" alt="burger">
             <h1 class="mainTitle">Eat-Da-Burger</h1>
         </div>
-        <div class="row">
+        <div class="row mainBody">
             <div class="col col-12 col-md-6 burgerslist">
                 <div class="row">
                     <div class="col col-12">
@@ -40,6 +40,9 @@
                             🍴 
                             {{id}}.
                             {{burger_name}}
+                            <button class="devourIt btn btn-danger eatAgain" data-id="{{this.id}}" data-newlydevoured="false">
+                                    Eat Again!</button>
+                                <hr>
                         </li>
                         {{/if}}
                         {{/each}}
