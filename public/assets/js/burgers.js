@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       console.info('DOM loaded');
     }
 
-
     // CREATE
 
     // Set up event listener for adding a burger
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
      // UPDATE
   const devourItBtn = document.querySelectorAll('.devourIt');
 
-  // Set up the event listener for the create button
+  // Set up the event listener for devouring burger
   if (devourItBtn) {
     devourItBtn.forEach((button) => {
       button.addEventListener('click', (e) => {
@@ -54,13 +53,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-
-          // make sure to serialize the JSON body
           body: JSON.stringify(devouredState),
         }).then((response) => {
-          console.log("DevourIt", response)
-          // Check that the response is all good
-          // Reload the page so the user can see the new quote
+          //console.log("DevourIt", response)
           if (response.ok) {
             console.log(`Burger devoured: ${newlyDevoured}}`);
             location.reload();
@@ -72,53 +67,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   }
 
- /*
-    // UPDATE
-    $(function() {
-        $(".devourIt").on("click", (e) => {
-            const id = $(this).data("id"); 
-            const devoured = $(this).data("newlydevoured");
-            const burgerDevoured = {
-                devoured: devoured
-            };
-            // Send the PUT request.
-        $.ajax("/api/burgers/" + id, {
-            type: "PUT",
-            data: burgerDevoured
-        }).then(
-            function() {
-            console.log("Burger Eaten", burgerDevoured);
-            // Reload the page to get the updated list
-            location.reload();
-            }
-        );
-        });
-    })
-*/
-    /*
-$(function() {
-  $(".devourIt").on("click", function(event) {
-    var id = $(this).data("id");
-    var newlyDevoured = $(this).data("newlydevoured");
-
-    var devouredState = {
-      devoured: newlyDevoured
-    };
-
-    // Send the PUT request.
-    $.ajax("/api/burgers/" + id, {
-      type: "PUT",
-      data: devouredState
-    }).then(
-      function() {
-        console.log("changed devoured to", newlyDevoured);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-})
-*/
 });
 
 
