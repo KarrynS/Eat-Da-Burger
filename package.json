@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon server.js",
+    "start": "node server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KarrynS/Eat-Da-Burger.git"
@@ -21,8 +26,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
-  },
-  "scripts": {
-    "start": "node server.js"
   }
 }
