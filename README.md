@@ -24,7 +24,7 @@ Techonologies utilised :  Node.js, mySQL, Express,  Handlebars , Heroku and ORM.
 <br>
 <a href="https://karryns.github.io/Portfolio/portfolio.html" target="_blank"> Link to portfolio</a>
 <br>
-<img src="public/assets/img/burger.png">
+<img src="public/assets/img/Eat-Da-Burger.png">
 
 ## Contributing
 To contribute please refer to https://github.com/microsoft/vscode/wiki/How-to-Contribute
