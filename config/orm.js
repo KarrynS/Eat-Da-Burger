@@ -80,8 +80,8 @@ const orm = {
                     throw err;
                }
                cb(result);  
-          })
-     }
+          });
+     },
 }
 
 module.exports = orm;

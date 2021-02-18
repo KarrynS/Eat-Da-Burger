@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 
-
      // UPDATE
   const devourItBtn = document.querySelectorAll('.devourIt');
 
@@ -64,7 +63,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           // Reload the page so the user can see the new quote
           if (response.ok) {
             console.log(`Burger devoured: ${newlyDevoured}}`);
-            location.reload('/');
+            location.reload();
           } else {
             alert('something went wrong!');
           }
